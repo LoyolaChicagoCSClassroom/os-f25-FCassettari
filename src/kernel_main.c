@@ -44,13 +44,6 @@ void putc(int data) {
     }
 }
 
-void print_hex(uint32_t num) {
-    const char *hex = "0123456789ABCDEF";
-    for (int i = 28; i >= 0; i -= 4) {
-        putc(hex[(num >> i) & 0xF]);
-    }
-}
-
 void main() {
     putc('H'); putc('e'); putc('l'); putc('l'); putc('o'); putc('\n');
 
@@ -58,10 +51,6 @@ void main() {
 
     uint32_t esp_val;
     __asm__ __volatile__("mov %%esp, %0" : "=r"(esp_val));
-
-    putc('E'); putc('S'); putc('P'); putc(':'); putc(' ');
-    print_hex(esp_val);
-    putc('\n');
 
     while (1);
 }
