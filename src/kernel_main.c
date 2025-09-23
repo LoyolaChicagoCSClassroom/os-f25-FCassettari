@@ -45,7 +45,8 @@ void putc(int data) {
 }
 
 void main() {
-    putc('H'); putc('e'); putc('l'); putc('l'); putc('o'); putc('\n');
+
+    for (int i = 7; i > 0; i--) { esp_printf(putc, "Hello\n"); }
 
     for (int i = 1008; i > 0; i--) { putc('j'); }
 
